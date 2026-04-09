@@ -200,6 +200,21 @@ img:active {
   opacity: 0;
 }
 
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.intro-animado {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1.5s ease;
+}
+
+.intro-animado.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .contador-box {
   margin: 40px auto;
   padding: 30px;
@@ -256,7 +271,7 @@ img:active {
 
 <!-- INTRO -->
 <section id="intro" class="hidden">
-  <p class="fade">
+  <p class="intro-animado">
     No soy tan bueno explicando todo lo que siento…<br><br>
 
     pero quería hacer algo distinto para vos.<br><br>
@@ -453,7 +468,14 @@ con vos 💜</p>
 /* navegación */
 function mostrarSeccion(id) {
   document.getElementById("inicio").style.display = "none";
-  document.getElementById(id).classList.remove("hidden");
+
+  const seccion = document.getElementById(id);
+  seccion.classList.remove("hidden");
+
+  setTimeout(() => {
+    const texto = seccion.querySelector(".intro-animado");
+    texto.classList.add("mostrar");
+  }, 100);
 }
 
 /* contador con fecha correcta */
