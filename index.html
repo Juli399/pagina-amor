@@ -14,6 +14,7 @@ body {
   color: white;
   text-align: center;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* fondo estrellas */
@@ -28,17 +29,17 @@ body {
 }
 
 #pantalla-inicial {
-  position: fixed; /* fijo sobre todo */
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%; /* 100% de la pantalla */
+  right: 0;
+  bottom: 0;        /* reemplaza height: 100vh */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: radial-gradient(circle at 20% 30%, #2a0f3f, #0d0d0d);
-  overflow: hidden; /* bloquea scroll mientras está visible */
+  overflow: hidden;  /* bloquea scroll */
   z-index: 9999;
 }
 
@@ -430,8 +431,8 @@ img:active {
   justify-content: center;
   width: 100%;
   max-width: 440px;
-  gap: 40px;
   padding: 0 15px;
+  gap: 40px;
   box-sizing: border-box;
 }
 
@@ -894,20 +895,15 @@ con vos 💜</p>
   const pantalla = document.getElementById("pantalla-inicial");
   const corazon = document.getElementById("corazon-entrada");
 
-  // Bloqueamos scroll mientras la pantalla inicial está visible
-  document.body.style.overflow = 'hidden';
-
-  // animar corazón
   corazon.classList.add("animar");
-
-  // fade de pantalla
+  
   pantalla.style.transition = "opacity 1s";
   pantalla.style.opacity = "0";
 
   setTimeout(() => {
     pantalla.style.display = "none";
-    document.body.style.overflow = 'auto'; // desbloquea scroll de la página
-    window.scrollTo(0, 0); // asegura que quede arriba al entrar
+    document.body.style.overflowY = 'auto'; // desbloquea scroll después de entrar
+    window.scrollTo(0,0);
   }, 1000);
 }
 
