@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +25,64 @@ body {
   height: 100%;
   z-index: -1;
   background: #0d0d0d;
+}
+
+#pantalla-inicial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: radial-gradient(circle at 20% 30%, #2a0f3f, #0d0d0d);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  text-align: center;
+}
+
+.pantalla-contenido {
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.pantalla-contenido h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #f3e8ff;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+}
+
+.pantalla-contenido button {
+  background: linear-gradient(135deg, #a855f7, #c084fc);
+  border: none;
+  padding: 16px 35px;
+  border-radius: 30px;
+  font-size: 18px;
+  color: white;
+  margin-top: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
+  transition: 0.3s;
+}
+
+.pantalla-contenido button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(192, 132, 252, 0.9);
+}
+
+.pantalla-contenido button {
+  animation: latidoBoton 2s infinite;
+}
+
+@keyframes latidoBoton {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 section {
@@ -252,10 +311,193 @@ img:active {
   50% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
+
+#corazon-entrada {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 60px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#corazon-entrada.animar {
+  animation: aparecerCorazon 1s ease forwards;
+}
+
+@keyframes aparecerCorazon {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+.luces span {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(192, 132, 252, 0.15);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: moverLuces 10s infinite alternate;
+}
+
+.luces span:nth-child(1) {
+  top: 10%;
+  left: 20%;
+}
+
+.luces span:nth-child(2) {
+  top: 60%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+.luces span:nth-child(3) {
+  top: 40%;
+  left: 40%;
+  animation-delay: 4s;
+}
+
+@keyframes moverLuces {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(50px, -50px);
+  }
+}
+
+.luces {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.pantalla-contenido {
+  position: relative;
+  z-index: 1;
+}
+
+#estrellas-intro {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.carta {
+  width: 85%;
+  max-width: 320px;
+  margin: 0 auto 25px auto;
+  padding: 25px 20px;
+
+  background: linear-gradient(180deg, #fdf6e3, #f5e6c8);
+  color: #4b2e2e;
+
+  border-radius: 8px;
+  border: 1px solid #e4d3a3;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1.6;
+
+  transform: rotate(-2deg);
+
+  position: relative;
+}
+
+.carta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.02),
+    rgba(0,0,0,0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.carta::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  width: 80%;
+  height: 10px;
+  background: rgba(0,0,0,0.2);
+  filter: blur(10px);
+  border-radius: 50%;
+}
+
+.carta p {
+  margin: 0;
+}
+
+.carta {
+  opacity: 0;
+  transform: translateY(-20px) rotate(-2deg);
+  animation: aparecerCarta 1.5s ease forwards;
+}
+
+@keyframes aparecerCarta {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-2deg);
+  }
+}
+
 </style>
 </head>
 
 <body>
+
+  <!-- PANTALLA INICIAL -->
+<section id="pantalla-inicial">
+  <canvas id="estrellas-intro"></canvas>
+  <div class="luces">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+  <div class="pantalla-contenido">
+    <div class="carta">
+  <p>
+    Para vos 💜<br><br>
+    No es una carta cualquiera…<br>
+    especial y unicamente para mi novia.
+  </p>
+</div>
+    <h1> ⚠️ ADVERTENCIA ⚠️<br> 
+      esto puede causarte una sonrisa 😏💜</h1>
+
+    <p style="opacity:0.7; font-size:14px;">
+      no digas que no te avisé…
+    </p>
+
+    <button onclick="entrarPagina()">💜</button>
+
+  </div>
+  <div id="corazon-entrada">💜</div>
+</section>
 
 <canvas id="stars"></canvas>
 
@@ -465,6 +707,22 @@ con vos 💜</p>
 
 <script>
 
+  function entrarPagina() {
+  const pantalla = document.getElementById("pantalla-inicial");
+  const corazon = document.getElementById("corazon-entrada");
+
+  // animar corazón
+  corazon.classList.add("animar");
+
+  // fade de pantalla
+  pantalla.style.opacity = "0";
+  pantalla.style.transition = "1s";
+
+  setTimeout(() => {
+    pantalla.style.display = "none";
+  }, 1000);
+}
+
 /* navegación */
 function mostrarSeccion(id) {
   document.getElementById("inicio").style.display = "none";
@@ -575,6 +833,65 @@ drawStars();
 window.addEventListener("resize", () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+});
+
+const canvasIntro = document.getElementById("estrellas-intro");
+const ctxIntro = canvasIntro.getContext("2d");
+
+canvasIntro.width = window.innerWidth;
+canvasIntro.height = window.innerHeight;
+
+let estrellas = [];
+
+// estrellas normales
+for (let i = 0; i < 80; i++) {
+  estrellas.push({
+    x: Math.random() * canvasIntro.width,
+    y: Math.random() * canvasIntro.height,
+    size: Math.random() * 2
+  });
+}
+
+// dibujar estrellas
+function dibujarEstrellas() {
+  ctxIntro.clearRect(0, 0, canvasIntro.width, canvasIntro.height);
+
+  ctxIntro.fillStyle = "white";
+
+  estrellas.forEach(e => {
+    ctxIntro.beginPath();
+    ctxIntro.arc(e.x, e.y, e.size, 0, Math.PI * 2);
+    ctxIntro.fill();
+  });
+}
+
+// estrella fugaz
+function estrellaFugaz() {
+  const x = Math.random() * canvasIntro.width;
+  const y = Math.random() * (canvasIntro.height / 2);
+
+  ctxIntro.strokeStyle = "white";
+  ctxIntro.lineWidth = 2;
+
+  ctxIntro.beginPath();
+  ctxIntro.moveTo(x, y);
+  ctxIntro.lineTo(x + 120, y + 60);
+  ctxIntro.stroke();
+}
+
+function animarIntro() {
+  dibujarEstrellas();
+  requestAnimationFrame(animarIntro);
+}
+
+animarIntro();
+
+// cada 4 segundos estrella fugaz
+setInterval(estrellaFugaz, 4000);
+
+window.addEventListener("resize", () => {
+  canvasIntro.width = window.innerWidth;
+  canvasIntro.height = window.innerHeight;
 });
 
 </script>
