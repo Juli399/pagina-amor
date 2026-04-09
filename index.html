@@ -111,6 +111,22 @@ button:active {
   line-height: 1.6;
 }
 
+.bloque-fotos {
+  margin: 40px auto;
+  padding: 25px;
+  max-width: 500px;
+  background: rgba(192, 132, 252, 0.1);
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.bloque-fotos p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #e9d5ff;
+}
+
 img {
   width: 90%;
   max-width: 400px;
@@ -154,14 +170,57 @@ img:active {
   max-height: 200px;
 }
 
+.frase-final {
+  font-size: 22px;
+  line-height: 1.8;
+  margin: 80px auto;
+  max-width: 500px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.frase-final span {
+  display: block;
+  margin-top: 15px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #c084fc;
+  text-shadow: 0 0 15px rgba(192, 132, 252, 0.6);
+  animation: latido 2s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 .fade {
   animation: fadeIn 1.5s ease forwards;
   opacity: 0;
 }
 
+.contador-box {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 500px;
+  background: rgba(192, 132, 252, 0.08);
+  border-radius: 20px;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+}
+
 #contador {
-  font-size: 22px;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 15px 0;
+  color: #c084fc;
   animation: pulse 2s infinite;
+}
+
+.contador-texto {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 @keyframes fadeIn {
@@ -204,7 +263,7 @@ img:active {
 
     Capaz no es perfecto, ni súper elaborado,<br>
     pero es algo que hice pensando en vos,<br>
-    y eso ya lo hace importante para mí.<br><br>
+    y eso ya lo hace importante creo yo.<br><br>
 
     La verdad es que a veces en general me cuesta decirle a alguien todo lo que me pasa,<br>
     no porque no lo sienta, sino porque es mucho…<br>
@@ -234,7 +293,8 @@ img:active {
     algo que puedas ver cuando quieras<br>
     y acordarte de todo lo que significás para mí.<br><br>
 
-    Porque vos sos alguien muy importante en mi vida 💜
+    Porque vos sos alguien muy importante en mi vida.<br><br>
+    Te amo 💜
   </p>
 </section>
 
@@ -272,53 +332,64 @@ img:active {
 
 <!-- FOTO 1 -->
 <section class="fade">
-  <img src="martu/10c9fa84-54af-40bf-8d5d-c52f5fe4b775.jpg">
-  <p>Acá ya eras especial para mí…</p>
+  <img src="martu\10c9fa84-54af-40bf-8d5d-c52f5fe4b775.jpg">
+  <p>Un dia importante para nuestra historia juntos 16/2/26</p>
 </section>
 
-<section class="fade">
+<h2 style="margin-bottom:10px;">Un pedacito de nosotros</h2>
+<div class="bloque-fotos fade">
   <p>
-    Estas fotos son algunas de mis favoritas…<br>
+    Estas fotos son algunas de mis favoritas…<br><br>
+
     en realidad todas nuestras fotos las aprecio,<br>
-    pero elegí algunas 💜
+    pero elegí solo algunas 💜
   </p>
-</section>
+</div>
 
 <section class="fade">
   <div class="galeria">
-    <img src="martu/74f8b16c-d7e9-48f3-88b3-53245a00daa7.jpg">
-    <img src="martu/96467bd7-5d08-45e0-8b0d-2248e7c4c7aa.jpg">
-    <img src="martu/a9d4714f-eb9e-48c2-b8d0-30e49f385442.jpg">
-    <img src="martu/f563e5e4-a7d5-40b6-be65-60860bd3b7f5.jpg">
+    <img src="martu\74f8b16c-d7e9-48f3-88b3-53245a00daa7.jpg">
+    <img src="martu\96467bd7-5d08-45e0-8b0d-2248e7c4c7aa.jpg">
+    <img src="martu\a9d4714f-eb9e-48c2-b8d0-30e49f385442.jpg">
+    <img src="martu\f563e5e4-a7d5-40b6-be65-60860bd3b7f5.jpg">
   </div>
 </section>
 
 <!-- FOTO 2 -->
 <section class="fade">
-  <img src="martu/06194324-69f8-49cd-a956-b66bada1576f.jpg">
+  <img src="martu\06194324-69f8-49cd-a956-b66bada1576f.jpg">
   <p>Y acá… ya no había vuelta atrás, joda te amo</p>
 </section>
 
 <!-- CONTADOR -->
 <section class="fade">
-  <h2>Llevamos</h2>
-  <p id="contador"></p>
-  <p>siendo nosotros 💜</p>
+  <div class="contador-box">
+    
+    <h2>Desde que nos encontramos 💜</h2>
+    
+    <p id="contador"></p>
+    
+    <p class="contador-texto">
+      compartiendo momentos, risas<br>
+      y todo lo lindo que tenemos desde ese 4 de diciembre 💜
+    </p>
+
+  </div>
 </section>
 
 <!-- MENSAJE -->
 <section class="fade">
     <div id="corazones"></div>
-  <p>
-    Me haces feliz de una forma que no puedo explicar…<br>
-    pero sí sentir todos los días.
-  </p>
+  <p class="frase-final fade">
+  Me haces feliz de una forma que no puedo explicar…<br>
+  <span>pero sí sentir todos los días</span>
+</p>
 </section>
 
 <!-- MUSICA -->
 <section class="fade">
   <button onclick="document.getElementById('musica').play()">
-    Tocar para escuchar algo especial 🎶
+    Toca para escuchar nuestra cancion especial 🎶
   </button>
   <audio id="musica" src="martu\Taylor Swift - Daylight (Official Audio) - Taylor Swift.mp3"></audio>
 </section>
@@ -366,12 +437,14 @@ con vos 💜</p>
 </section>
 
 <!-- CIERRE -->
-<section class="fade">
+<div class="bloque-fotos fade">
   <p>
     No importa la distancia, el tiempo o lo que pase…<br>
     siempre te voy a elegir a vos 💜
   </p>
+</div>
 
+<section class="fade">
   <button onclick="final()">Tocá acá</button>
 </section>
 
@@ -393,8 +466,10 @@ function actualizarContador() {
   const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
   const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
 
-  document.getElementById("contador").innerText =
-    dias + " días y " + horas + " horas";
+  document.getElementById("contador").innerHTML = `
+    <span style="font-size:40px;">${dias}</span> días<br>
+    <span style="font-size:22px;">${horas} horas</span>
+  `;
 }
 
 setInterval(actualizarContador, 1000);
