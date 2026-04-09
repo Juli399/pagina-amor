@@ -407,29 +407,69 @@ img:active {
   z-index: 0;
 }
 
+/* CARTA ROMÁNTICA */
 .carta {
+  min-height: 150px;
   position: relative;
   width: 90%;
-  max-width: 320px;
-  padding: 25px 20px;
+  max-width: 440px !important;
+  margin: 0 auto 20px auto;
+  padding: 28px 20px;
   background: linear-gradient(180deg, #fdf6e3, #f5e6c8);
   color: #4b2e2e;
-  border-radius: 10px;
-  border: 1px solid #e4d3a3;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   font-family: 'Playfair Display', serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
-  opacity: 0;
-  animation: aparecerCarta 1.5s ease forwards;
-  overflow: visible; /* 🔑 evita scroll interno */
+  border-radius: 15px;
+  border: 2px solid #f5e0b7;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  overflow: hidden;
 }
 
-@keyframes aparecerCarta {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Rayas tipo papel antiguo */
+.carta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.02),
+    rgba(0,0,0,0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border-radius: 15px;
+  pointer-events: none;
+}
+
+/* Sombra difusa abajo de la carta */
+.carta::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 10%;
+  width: 80%;
+  height: 12px;
+  background: rgba(0,0,0,0.2);
+  filter: blur(12px);
+  border-radius: 50%;
+}
+
+/* Corazoncitos decorativos en las esquinas */
+.carta .decor {
+  position: absolute;
+  font-size: 20px;
+  color: #f08ec4;
+}
+
+.carta .decor.top-left { top: 10px; left: 10px; }
+.carta .decor.top-right { top: 10px; right: 10px; }
+.carta .decor.bottom-left { bottom: 10px; left: 10px; }
+.carta .decor.bottom-right { bottom: 10px; right: 10px; }
+
+/* párrafo dentro de la carta */
+.carta p {
+  margin: 0;
 }
 
 /* RESPONSIVO */
@@ -437,7 +477,7 @@ img:active {
   .carta {
     font-size: 14px;
     padding: 20px;
-    max-width: 95%;
+    max-width: 90%;
   }
 }
 
@@ -449,6 +489,128 @@ img:active {
   }
 }
 
+.carta-corazon {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 20px; /* separación desde el texto */
+  animation: latido 1.5s infinite;
+}
+
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.carta-sello {
+  width: 60px;
+  height: 6px;
+  background: linear-gradient(90deg, #f3c4fc, #a855f7);
+  border-radius: 3px;
+  margin: 25px auto 0 auto; /* centrado horizontal y margen superior */
+  box-shadow: 0 2px 8px rgba(168,85,247,0.3);
+}
+
+.carta-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centra horizontal */
+  justify-content: center;   /* centra vertical */
+  width: 100%;
+  min-height: 100vh;         /* ocupa toda la pantalla */
+  padding: 0;
+  box-sizing: border-box;
+  gap: 40px;                 /* espacio entre carta y advertencia */
+}
+
+.carta {
+  margin-bottom: 30px;
+  position: relative;
+  box-sizing: border-box;
+  width: 410px;               /* ancho fijo */
+  max-width: 90%;             /* responsive si es muy chico */
+  padding: 30px 20px;
+  background: linear-gradient(180deg, #fdf6e3, #f5e6c8);
+  color: #4b2e2e;
+  border-radius: 12px;
+  border: 1px solid #e4d3a3;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow: hidden;           /* evita que crezca por contenido */
+  margin: 0;                  /* elimina margen que lo empuja */
+}
+
+.carta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.02),
+    rgba(0,0,0,0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.carta::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 10%;
+  width: 80%;
+  height: 10px;
+  background: rgba(0,0,0,0.2);
+  filter: blur(10px);
+  border-radius: 50%;
+}
+
+.detalles-carta {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.advertencia-fachada {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #fefcea, #f1c40f);
+  border: 2px solid #e1b12c;
+  border-radius: 12px;
+  padding: 15px 25px;
+  max-width: 350px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.icono-advertencia {
+  font-size: 28px;
+  margin-right: 12px;
+}
+
+.texto-advertencia {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #4b2e2e;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .carta, .advertencia-fachada {
+    width: 90%;
+  }
+
+  .detalles-carta {
+    font-size: 18px;
+  }
+}
+
 </style>
 </head>
 
@@ -457,29 +619,42 @@ img:active {
   <!-- PANTALLA INICIAL -->
 <section id="pantalla-inicial">
   <canvas id="estrellas-intro"></canvas>
+  
   <div class="luces">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <div class="pantalla-contenido">
-    <div class="carta">
-  <p>
-    Para vos 💜<br><br>
-    No es una carta cualquiera…<br>
-    especial y unicamente para mi novia.
-  </p>
-</div>
-    <h1> ⚠️ ADVERTENCIA ⚠️<br> 
-      esto puede causarte una sonrisa 😏💜</h1>
 
-    <p style="opacity:0.7; font-size:14px;">
-      no digas que no te avisé…
-    </p>
+    <div class="carta-contenedor">
+      <div class="carta">
+        <span class="decor top-left">💕</span>
+        <span class="decor top-right">💕</span>
+        <span class="decor bottom-left">🌹</span>
+        <span class="decor bottom-right">🌹</span>
+        <p>
+          Para vos 💜<br><br>
+          No es una carta cualquiera…<br>
+          especial y unicamente para mi novia.  
+        </p>
+        <div class="carta-corazon">💐</div>
+        <div class="carta-sello"></div>
+      </div>
 
-    <button onclick="entrarPagina()">💜</button>
+      <div class="advertencia-fachada">
+        <div class="icono-advertencia">⚠️</div>
+        <div class="texto-advertencia">Esto puede causarte una sonrisa 😏💜</div>
+      </div>
+
+      <p style="opacity:0.7; font-size:14px;">no digas que no te avisé…</p>
+
+      <button onclick="entrarPagina()">💜</button>
+    </div>
 
   </div>
+
   <div id="corazon-entrada">💜</div>
 </section>
 
@@ -694,6 +869,9 @@ con vos 💜</p>
   function entrarPagina() {
   const pantalla = document.getElementById("pantalla-inicial");
   const corazon = document.getElementById("corazon-entrada");
+
+// Bloqueamos scroll mientras la pantalla inicial está visible
+document.body.style.overflow = 'hidden';
 
   // animar corazón
   corazon.classList.add("animar");
