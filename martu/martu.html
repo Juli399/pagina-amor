@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para vos 💜</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* fondo estrellas */
+#stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #0d0d0d;
+}
+
+section {
+  padding: 60px 20px;
+  transition: 0.5s;
+}
+
+section:hover {
+  transform: scale(1.01);
+}
+
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  color: #c084fc;
+  font-size: 50px;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+}
+
+#inicio h1 {
+  font-size: 42px;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.8);
+  margin-bottom: 20px;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+button {
+  background: #a855f7;
+  border: none;
+  padding: 14px 26px;
+  color: white;
+  border-radius: 30px;
+  font-size: 18px;
+  margin-top: 25px;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+button:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.flecha {
+  margin-top: 20px;
+  font-size: 20px;
+  opacity: 0.6;
+  animation: bajar 1.5s infinite;
+}
+
+#corazones span {
+  position: absolute;
+  color: #c084fc;
+  font-size: 18px;
+  animation: subir 5s linear infinite;
+}
+
+@keyframes subir {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px);
+    opacity: 0;
+  }
+}
+
+@keyframes bajar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+
+#intro p {
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+img {
+  width: 90%;
+  max-width: 400px;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+img:active {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hidden {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.hidden.show {
+  opacity: 1;
+  max-height: 200px;
+}
+
+.fade {
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+#contador {
+  font-size: 22px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.heart {
+  font-size: 30px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<!-- INICIO -->
+<section id="inicio">
+  <h1>Esto es solo para vos 💜</h1>
+  <p style="opacity: 0.8; font-size: 14px;">
+  tocá entrar y dejame mostrarte algo 💜
+</p>
+  <button onclick="mostrarSeccion('intro')">Entrar</button>
+  <div class="flecha">↓</div>
+</section>
+
+<!-- INTRO -->
+<section id="intro" class="hidden">
+  <p class="fade">
+    No soy tan bueno explicando todo lo que siento…<br><br>
+
+    pero quería hacer algo distinto para vos.<br><br>
+
+    Capaz no es perfecto, ni súper elaborado,<br>
+    pero es algo que hice pensando en vos,<br>
+    y eso ya lo hace importante para mí.<br><br>
+
+    La verdad es que a veces en general me cuesta decirle a alguien todo lo que me pasa,<br>
+    no porque no lo sienta, sino porque es mucho…<br>
+    y no siempre sé cómo ponerlo en palabras.<br><br>
+
+    Pero con vos me pasa algo distinto.<br>
+    Me hacés sentir cómodo, tranquilo,<br>
+    como si pudiera ser yo sin pensar demasiado.<br><br>
+
+    Y eso no es algo que pase todos los días.<br><br>
+
+    Hay momentos con vos que parecen simples,<br>
+    pero después me doy cuenta de que son los que más me quedan.<br>
+    Una charla, una risa, una mirada…<br>
+    cosas chiquitas que terminan siendo todo.<br><br>
+
+    Capaz no te lo digo siempre,<br>
+    pero valoro mucho cada instante que compartimos.<br>
+    De verdad.<br><br>
+
+    Y no es solo por lo que hacemos,<br>
+    sino por cómo me siento cuando estoy con vos.<br><br>
+
+    Por eso hice esto.<br>
+    No para impresionarte, ni para que sea perfecto, pensa que me lleve programacion jajaja<br>
+    sino para que tengas algo mío,<br>
+    algo que puedas ver cuando quieras<br>
+    y acordarte de todo lo que significás para mí.<br><br>
+
+    Porque vos sos alguien muy importante en mi vida 💜
+  </p>
+</section>
+
+<!-- MENSAJE -->
+<section class="fade">
+  <h2>Desde que llegaste</h2>
+  <p>
+    todo se volvió más lindo…<br><br>
+
+    no sé bien en qué momento pasó,<br>
+    pero empezaste a hacer que días normales<br>
+    se sientan distintos.<br><br>
+
+    como si todo tuviera un poco más de sentido,<br>
+    o como si siempre hubiera algo que esperar.<br><br>
+
+    me acostumbré a vos sin darme cuenta,<br>
+    a hablarte, a pensarte,<br>
+    a que estés presente en mis días.<br><br>
+
+    incluso en los momentos más simples,<br>
+    siempre hay algo que me lleva a vos,<br>
+    algo que me hace sonreír sin darme cuenta.<br><br>
+
+    y eso es lo que más me gusta,<br>
+    lo natural que se volvió todo con vos,<br>
+    lo bien que se siente tenerte cerca.<br><br>
+
+    y la verdad…<br>
+    no cambiaría eso por nada 💜
+  </p>
+
+  <div class="heart">💜</div>
+</section>
+
+<!-- FOTO 1 -->
+<section class="fade">
+  <img src="C:\Users\PC\Downloads\martu\10c9fa84-54af-40bf-8d5d-c52f5fe4b775.jpg">
+  <p>Acá ya eras especial para mí…</p>
+</section>
+
+<section class="fade">
+  <p>
+    Estas fotos son algunas de mis favoritas…<br>
+    en realidad todas nuestras fotos las aprecio,<br>
+    pero elegí algunas 💜
+  </p>
+</section>
+
+<section class="fade">
+  <div class="galeria">
+    <img src="C:\Users\PC\Downloads\martu\74f8b16c-d7e9-48f3-88b3-53245a00daa7.jpg">
+    <img src="C:\Users\PC\Downloads\martu\96467bd7-5d08-45e0-8b0d-2248e7c4c7aa.jpg">
+    <img src="C:\Users\PC\Downloads\martu\a9d4714f-eb9e-48c2-b8d0-30e49f385442.jpg">
+    <img src="C:\Users\PC\Downloads\martu\f563e5e4-a7d5-40b6-be65-60860bd3b7f5.jpg">
+  </div>
+</section>
+
+<!-- FOTO 2 -->
+<section class="fade">
+  <img src="C:\Users\PC\Downloads\martu\06194324-69f8-49cd-a956-b66bada1576f.jpg">
+  <p>Y acá… ya no había vuelta atrás, joda te amo</p>
+</section>
+
+<!-- CONTADOR -->
+<section class="fade">
+  <h2>Llevamos</h2>
+  <p id="contador"></p>
+  <p>siendo nosotros 💜</p>
+</section>
+
+<!-- MENSAJE -->
+<section class="fade">
+    <div id="corazones"></div>
+  <p>
+    Me haces feliz de una forma que no puedo explicar…<br>
+    pero sí sentir todos los días.
+  </p>
+</section>
+
+<!-- MUSICA -->
+<section class="fade">
+  <button onclick="document.getElementById('musica').play()">
+    Tocar para escuchar algo especial 🎶
+  </button>
+  <audio id="musica" src="C:\Users\PC\Downloads\martu\Taylor Swift - Daylight (Official Audio) - Taylor Swift.mp3"></audio>
+</section>
+
+<!-- MENSAJES SECRETOS -->
+<section class="fade">
+  <button onclick="toggle('m1')">Abrir cuando me extrañes</button>
+  <p id="m1" class="hidden">Si me extrañás… yo te extraño el doble 💜</p>
+
+  <button onclick="toggle('m2')">Abrir cuando estés triste</button>
+  <p id="m2" class="hidden">Siempre voy a estar para vos, pase lo que pase 💜</p>
+
+  <button onclick="toggle('m3')">Abrir cuando pienses en mí</button>
+  <p id="m3" class="hidden">Seguro estoy pensando en vos también 💜</p>
+</section>
+
+<!-- FINAL -->
+<section class="fade">
+  <h2>Hoy no es un día cualquiera…</h2>
+  <p>porque estoy con vos…<br><br>
+
+y eso ya hace que todo sea distinto.<br><br>
+
+no importa mucho el lugar,<br>
+ni lo que estemos haciendo,<br>
+porque si estás vos,<br>
+ya alcanza para que sea especial.<br><br>
+
+hay algo en vos que me calma,<br>
+que me hace sentir bien sin esfuerzo,<br>
+como si todo encajara de una forma natural.<br><br>
+
+y es raro de explicar,<br>
+pero al mismo tiempo es lo más real que siento.<br><br>
+
+porque no se trata de un día,<br>
+ni de un momento en particular…<br>
+se trata de vos,<br>
+y de lo que generás en mí todo el tiempo.<br><br>
+
+y hoy,<br>
+más que nunca,<br>
+solo quiero estar acá…<br>
+con vos 💜</p>
+</section>
+
+<!-- CIERRE -->
+<section class="fade">
+  <p>
+    No importa la distancia, el tiempo o lo que pase…<br>
+    siempre te voy a elegir a vos 💜
+  </p>
+
+  <button onclick="final()">Tocá acá</button>
+</section>
+
+<script>
+
+/* navegación */
+function mostrarSeccion(id) {
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById(id).classList.remove("hidden");
+}
+
+/* contador con fecha correcta */
+const inicio = new Date("2025-12-04");
+
+function actualizarContador() {
+  const ahora = new Date();
+  const diff = ahora - inicio;
+
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+  document.getElementById("contador").innerText =
+    dias + " días y " + horas + " horas";
+}
+
+setInterval(actualizarContador, 1000);
+
+/* mensajes */
+function toggle(id) {
+  document.getElementById(id).classList.toggle("show");
+}
+
+/* final */
+function final() {
+  alert("Ahora mirame 💜");
+}
+
+document.addEventListener("click", function(e) {
+  const heart = document.createElement("div");
+  heart.innerText = "💜";
+  heart.style.position = "fixed";
+  heart.style.left = e.clientX + "px";
+  heart.style.top = e.clientY + "px";
+  heart.style.pointerEvents = "none";
+  heart.style.animation = "fadeUp 1s ease-out";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 1000);
+});
+
+setInterval(() => {
+  const corazon = document.createElement("span");
+  corazon.innerText = "💜";
+
+  corazon.style.left = Math.random() * 100 + "%";
+  corazon.style.bottom = "0";
+
+  document.getElementById("corazones").appendChild(corazon);
+
+  setTimeout(() => corazon.remove(), 5000);
+}, 500);
+
+/* estrellas */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+for (let i = 0; i < 120; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2,
+    speed: Math.random() * 0.5
+  });
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+
+  stars.forEach(star => {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    star.y += star.speed;
+
+    if (star.y > canvas.height) {
+      star.y = 0;
+      star.x = Math.random() * canvas.width;
+    }
+  });
+
+  requestAnimationFrame(drawStars);
+}
+
+drawStars();
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+</script>
+
+</body>
+</html>
