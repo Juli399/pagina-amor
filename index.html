@@ -41,6 +41,7 @@ body {
   align-items: center;
   z-index: 9999;
   text-align: center;
+  overflow: hidden; /* bloquea scroll mientras pantalla inicial activa */
 }
 
 .pantalla-contenido {
@@ -49,10 +50,13 @@ body {
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* 🔥 ESTO CENTRA TODO BIEN */
+  align-items: center;
   justify-content: center;
 
   text-align: center;
+  max-height: 90vh; /* evita que el contenido se salga en móviles */
+  overflow-y: auto; /* scroll interno solo si es necesario */
+  padding: 10px;
 }
 
 .pantalla-contenido h1 {
@@ -406,12 +410,12 @@ img:active {
 }
 
 .carta {
-  position: relative; /* 🔑 para que los ::before y ::after se posicionen correctamente */
-  box-sizing: border-box; /* 🔑 para que padding y border no rompan el ancho */
+  position: relative;
+  box-sizing: border-box;
 
   width: 90%;
   max-width: 320px;
-  margin: 0 auto; /* centrado horizontal */
+  margin: 0 auto;
   padding: 25px 20px;
 
   background: linear-gradient(180deg, #fdf6e3, #f5e6c8);
@@ -425,58 +429,26 @@ img:active {
   font-size: 15px;
   line-height: 1.6;
 
-  transform: translateY(-20px) rotate(-2deg); /* animación inicial */
-  opacity: 0; /* animación inicial */
+  opacity: 0;
   animation: aparecerCarta 1.5s ease forwards;
-}
 
-/* líneas tipo papel y sombra */
-.carta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.02),
-    rgba(0,0,0,0.02) 2px,
-    transparent 2px,
-    transparent 4px
-  );
-  border-radius: 8px;
-  pointer-events: none;
-}
-
-.carta::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 10%;
-  width: 80%;
-  height: 10px;
-  background: rgba(0,0,0,0.2);
-  filter: blur(10px);
-  border-radius: 50%;
-}
-
-/* párrafo dentro de la carta */
-.carta p {
-  margin: 0;
+  /* Quitamos max-height y overflow interno */
 }
 
 /* animación de aparición */
 @keyframes aparecerCarta {
   to {
     opacity: 1;
-    transform: translateY(0) rotate(-2deg);
+    transform: translateY(0); /* ya no rotate */
   }
 }
 
-/* RESPONSIVO: móvil vs desktop */
+/* RESPONSIVO */
 @media (max-width: 480px) {
   .carta {
     font-size: 14px;
     padding: 20px;
-    max-width: 90%;
+    max-width: 95%;
   }
 }
 
@@ -737,12 +709,17 @@ con vos 💜</p>
   // animar corazón
   corazon.classList.add("animar");
 
+  // bloqueamos scroll mientras la pantalla inicial está visible
+  document.body.style.overflow = 'hidden';
+
   // fade de pantalla
   pantalla.style.opacity = "0";
   pantalla.style.transition = "1s";
 
   setTimeout(() => {
     pantalla.style.display = "none";
+    // permitimos scroll de la página normal
+    document.body.style.overflow = 'auto';
   }, 1000);
 }
 
