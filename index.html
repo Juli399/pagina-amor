@@ -606,6 +606,22 @@ img:active {
     width: 90%;
   }
 
+  .advertencia-fachada {
+    justify-content: center; /* centra el contenido horizontalmente */
+    text-align: center;      /* centra el texto */
+    flex-wrap: wrap;         /* permite que el texto largo baje de línea sin desalinearse */
+  }
+
+  .icono-advertencia {
+    margin-right: 8px; /* reducimos un poco el margen lateral */
+    flex-shrink: 0;    /* evita que el icono se achique */
+  }
+
+  .texto-advertencia {
+    word-break: break-word; /* evita que se salga del contenedor */
+  }
+}
+
   .detalles-carta {
     font-size: 18px;
   }
